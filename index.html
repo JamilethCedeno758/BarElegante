@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bar Exclusivo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background"></div>
+
+  <header class="container">
+    <h1>🍸 Bienvenido a nuestro Bar de Lujo</h1>
+    <p>Disfruta cócteles de autor en un ambiente elegante</p>
+  </header>
+
+  <main class="container">
+    <section class="order-section">
+      <h2>Ordenar</h2>
+      <div class="cocktail-buttons">
+        <button onclick="showCocktail('mojito')">Mojito</button>
+        <button onclick="showCocktail('margarita')">Margarita</button>
+        <button onclick="showCocktail('pinacolada')">Piña Colada</button>
+        <button onclick="showCocktail('negroni')">Negroni</button>
+      </div>
+      <div id="cocktail-display" class="card-container"></div>
+    </section>
+  </main>
+
+  <section class="about container">
+    <h2>Sobre el Bar</h2>
+    <p>
+      Fundado con pasión en el año <strong>2025</strong> en <strong>Portoviejo, Manabí</strong>,
+      este exclusivo bar fue inaugurado por <strong>Rosa Jamileth Veliz Cedeño</strong>,
+      una destacada estudiante universitaria con la visión de crear un espacio sofisticado
+      para los amantes de la buena música, los cócteles de autor y la elegancia atemporal.
+    </p>
+  </section>
+
+  <section class="menu container">
+    <h2>Nuestro Menú</h2>
+    <p>Explora nuestra carta de cócteles exclusivos, con los sabores más reconocidos y precios accesibles en Ecuador.</p>
+    <div class="menu-list">
+      <div class="menu-item">
+        <h4>Margarita</h4>
+        <span>$6.50</span>
+      </div>
+      <div class="menu-item">
+        <h4>Mojito Clásico</h4>
+        <span>$5.00</span>
+      </div>
+      <div class="menu-item">
+        <h4>Piña Colada</h4>
+        <span>$7.00</span>
+      </div>
+      <div class="menu-item">
+        <h4>Negroni</h4>
+        <span>$8.00</span>
+      </div>
+      <div class="menu-item">
+        <h4>Caipirinha</h4>
+        <span>$6.00</span>
+      </div>
+      <div class="menu-item">
+        <h4>Daiquiri de Fresa</h4>
+        <span>$6.50</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ambiente container">
+    <h2>Ambiente y Música</h2>
+    <p>
+      Nuestro bar ofrece un ambiente sofisticado y relajado, acompañado por una cuidadosa selección de música en vivo,
+      jazz, baladas y ritmos lounge que te invitan a quedarte.
+      Disfruta cada copa con buena compañía y el mejor sonido ambiental para una velada inolvidable.
+    </p>
+  </section>
+
+  <script>
+    const cocktails = {
+      mojito: {
+        img: 'mojito.jpg',
+        ingredientes: 'Ron blanco, hierbabuena, azúcar, lima, soda'
+      },
+      margarita: {
+        img: 'margarita.jpg',
+        ingredientes: 'Tequila, triple sec, lima, sal'
+      },
+      pinacolada: {
+        img: 'pinacolada.jpg',
+        ingredientes: 'Ron, crema de coco, jugo de piña, hielo'
+      },
+      negroni: {
+        img: 'negroni.jpg',
+        ingredientes: 'Ginebra, vermut rojo, Campari, naranja'
+      }
+    };
+
+    function showCocktail(name) {
+      const { img, ingredientes } = cocktails[name];
+      document.getElementById('cocktail-display').innerHTML = `
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="${img}" alt="${name}">
+              <h3>${name.charAt(0).toUpperCase() + name.slice(1)}</h3>
+            </div>
+            <div class="card-back">
+              <p><strong>Ingredientes:</strong><br>${ingredientes}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
+
